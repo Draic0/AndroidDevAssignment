@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">AndroidDevAssignment</string>
+    <string-array name="db_default">
+        <item>База данных</item>
+    </string-array>
+    <string name="title">Docsvision</string>
+    <string name="server_address">Адрес сервера</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="enter">Войти</string>
+    <string name="def_server">По умолч. \"http://almaz3.digdes.com\"</string>
+    <string name="auth_success">Успешная авторизация!</string>
+    <string name="auth_failure">Неудачная авторизация!</string>
+    <string name="token">Токен: </string>
+    <string name="token_type">Тип: </string>
+    <string name="expires">Время действия: </string>
+    <string name="refresh_token">Токен обновления: </string>
+    <string name="copy">Копировать</string>
+    <string name="text_copied">Токен скопирован в буфер обмена.</string>
+    <string name="connection_error">Ошибка подключения!</string>
+</resources>

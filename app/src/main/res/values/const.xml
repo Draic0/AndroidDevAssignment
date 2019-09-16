@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="vertical_span">30dp</dimen>
+    <dimen name="text_normal">25sp</dimen>
+    <dimen name="text_small">16sp</dimen>
+</resources>
