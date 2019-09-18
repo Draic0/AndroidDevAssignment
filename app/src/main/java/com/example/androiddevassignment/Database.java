@@ -1,6 +1,8 @@
 package com.example.androiddevassignment;
 
-public class Database {
+import java.io.Serializable;
+
+public class Database implements Serializable {
     private String id, name;
     public Database(String id, String name){
         this.id = id;

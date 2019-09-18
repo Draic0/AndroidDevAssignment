@@ -1,6 +1,9 @@
-package com.example.androiddevassignment;
+package com.example.androiddevassignment.network;
 
 import android.support.annotation.NonNull;
+
+import com.example.androiddevassignment.ConstVals;
+import com.example.androiddevassignment.MainActivity;
 
 public class GetBasesRequest extends Request {
 
@@ -14,11 +17,9 @@ public class GetBasesRequest extends Request {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        activity.parseDbData(s);
-        activity.fillDbData(true);
-        activity.serverAddress.setOnFocusChangeListener(null);
-        activity.login.requestFocus();
-        activity.serverAddress.setOnFocusChangeListener(activity.listener);
+        activity.model.parseDbData(s);
+        activity.view.fillDbData(activity,activity.model.getDatabases(),true);
+        activity.view.requestLoginFocus();
         activity = null;
     }
 

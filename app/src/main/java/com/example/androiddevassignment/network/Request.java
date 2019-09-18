@@ -1,4 +1,4 @@
-package com.example.androiddevassignment;
+package com.example.androiddevassignment.network;
 
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
