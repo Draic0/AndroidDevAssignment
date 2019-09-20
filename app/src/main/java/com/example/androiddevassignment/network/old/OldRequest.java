@@ -1,4 +1,4 @@
-package com.example.androiddevassignment.network;
+package com.example.androiddevassignment.network.old;
 
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
@@ -18,15 +18,15 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.UUID;
 
-public class Request extends AsyncTask<String,Void,String> {
+public class OldRequest extends AsyncTask<String,Void,String> {
 
-    private static final String TAG = "Request";
+    private static final String TAG = "OldRequest";
 
     private static String requestId;
 
     private Action action;
 
-    public Request(@NonNull Action action){
+    public OldRequest(@NonNull Action action){
         this.action = action;
     }
 

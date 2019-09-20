@@ -1,19 +1,17 @@
-package com.example.androiddevassignment.network;
+package com.example.androiddevassignment.network.old;
 
 import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
 import com.example.androiddevassignment.ConstVals;
 import com.example.androiddevassignment.MainActivity;
-import com.example.androiddevassignment.R;
 import com.example.androiddevassignment.view.DialogView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class GetTokenRequest extends Request {
+public class GetTokenRequest extends OldRequest {
 
     private static final String TAG = "GetTokenRequest";
 
@@ -28,7 +26,7 @@ public class GetTokenRequest extends Request {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         if(s==null){
-            showAuthFailure();
+            activity.view.showAuthFailureDialog(activity);
             activity = null;
             return;
         }
@@ -37,7 +35,7 @@ public class GetTokenRequest extends Request {
             JSONObject obj = arr.getJSONObject(0);
             obj = new JSONObject(obj.getString("Message"));
             if(obj.isNull("JwtToken")){
-                showAuthFailure();
+                activity.view.showAuthFailureDialog(activity);
                 return;
             }
             obj = obj.getJSONObject("JwtToken");
@@ -50,12 +48,6 @@ public class GetTokenRequest extends Request {
             Log.e(TAG,Log.getStackTraceString(exc));
         }
         activity = null;
-    }
-
-    private void showAuthFailure(){
-        AlertDialog.Builder ab = new AlertDialog.Builder(activity, R.style.AlertDialog);
-        ab.setMessage(R.string.auth_failure).setPositiveButton("OK",null)
-                .create().show();
     }
 
     @Override

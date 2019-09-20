@@ -1,5 +1,6 @@
 package com.example.androiddevassignment.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.androiddevassignment.Database;
 import com.example.androiddevassignment.R;
+import com.example.androiddevassignment.network.neww.TokenResponse;
 
 import java.util.ArrayList;
 
@@ -121,5 +123,16 @@ public class ContentView {
         outState.putLong("idx",databases.getSelectedItemId());
         outState.putString("login",login.getText().toString());
         outState.putString("password",password.getText().toString());
+    }
+
+    public void showTokenReceivedDialog(Activity activity, TokenResponse tokenData){
+        new DialogView(activity, tokenData.getAccessToken(), tokenData.getTokenType(),
+                tokenData.getExpiresIn(), tokenData.getRefreshToken()).get().show();
+    }
+
+    public void showAuthFailureDialog(Context context){
+        AlertDialog.Builder ab = new AlertDialog.Builder(context, R.style.AlertDialog);
+        ab.setMessage(R.string.auth_failure).setPositiveButton("OK",null)
+                .create().show();
     }
 }

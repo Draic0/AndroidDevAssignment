@@ -29,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus){
                     ConstVals.serverAddress = view.getServerAddress();
-                    model.fetchDataBases(MainActivity.this);
+                    if(!model.fetchDatabases(MainActivity.this)){
+                        view.fillDbData(MainActivity.this,null, true);
+                    }
                 }
             }
         });
@@ -38,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if(actionId== EditorInfo.IME_ACTION_GO){
                     ConstVals.serverAddress = view.getServerAddress();
-                    model.fetchDataBases(MainActivity.this);
+                    if(!model.fetchDatabases(MainActivity.this)){
+                        view.fillDbData(MainActivity.this,null,true);
+                    }
                 }
                 return true;
             }
@@ -49,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 String id = view.getSelectedDatabase().getId();
                 String login = view.getLogin();
                 String password = view.getPassword();
-                model.loginAction(MainActivity.this,id,login,password);
+                model.login(MainActivity.this,id,login,password);
             }
         });
 
